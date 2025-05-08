@@ -4,10 +4,11 @@
   "type": "module",
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",
-    "dev:vite": "vite ",
+    "dev:vite": "vite",
     "dev:db": "ts-node ./backend/express.ts",
     "build": "vite build",
-    "prod": "vite preview"
+    "prod": "vite preview",
+    "server": "ts-node ./backend/express.ts"
   },
   "author": "Ian Matheus Veiga",
   "license": "ISC",
