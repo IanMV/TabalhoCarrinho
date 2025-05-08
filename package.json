@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "npm-run-all --parallel dev:*",
     "dev:vite": "vite ",
-    "dev:db": "ts-node ./backend/express.ts"
+    "dev:db": "ts-node ./backend/express.ts",
+    "build": "vite build",
+    "prod": "vite preview"
   },
   "author": "Ian Matheus Veiga",
   "license": "ISC",
