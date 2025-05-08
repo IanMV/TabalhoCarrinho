@@ -1,0 +1,28 @@
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: sans-serif;
+  font-size: var(--texto);
+}
+
+/*
+Cores
+*/
+:root{
+  --verde-claro:rgb(39, 174, 96);
+  --cinza: rgb(123, 120, 129);
+  --preto: rgb(48, 38, 38);
+  --branco:  rgb(255, 255, 255);
+  --vermelho : rgb(192, 19, 19);
+}
+
+
+/*
+Fontes
+*/
+:root{
+  --texto: calc(13px + 0.3vw);
+  --subtitulo: calc(25px + 1.5vw);
+  --titulo: calc(30px + 1vw);
+}
