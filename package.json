@@ -1,15 +1,17 @@
 {
   "name": "cartproject",
   "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "npm-run-all --parallel dev:*",
-    "dev:vite": "vite",
-    "dev:db": "ts-node ./backend/express.ts",
-    "build": "vite build",
-    "prod": "vite preview",
-    "server": "ts-node ./backend/express.ts"
-  },
+ "scripts": {
+  "dev": "npm-run-all --parallel dev:*",
+  "dev:front": "vite",
+  "dev:back": "ts-node ./backend/express.ts",
+  "build-front": "vite build",
+  "clean": "rimraf ./server",
+  "build-back": "npm run clean && tsc",
+  "prod": "npm-run-all --parallel prod:*",
+  "prod:back": "node ./backend/dist/express.js", 
+  "prod:front": "vite preview"
+},
   "author": "Ian Matheus Veiga",
   "license": "ISC",
   "description": "A simple school project to learn javascript related technologies.",
