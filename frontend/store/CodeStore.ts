@@ -5,6 +5,9 @@ import { MessageErrorStore } from "./MessageError";
 
 import { UserStore } from "./UserStore";
 
+import env from "dotenv";
+env.config()
+
 export const CodeStore = defineStore("Code", () => {
   const user = UserStore();
   const erro = MessageErrorStore();
@@ -14,7 +17,7 @@ export const CodeStore = defineStore("Code", () => {
   async function verification() {
     try {
       const response: Response = await fetch(
-        "http://localhost:3000/user/check-token",
+        `${process.env.LOCAL}/user/check-token`,
         {
           method: "POST",
           headers: {
@@ -45,7 +48,7 @@ export const CodeStore = defineStore("Code", () => {
 
   async function sendtoken() {
     try {
-      const response: Response = await fetch("http://localhost:3000/email/send-token", {
+      const response: Response = await fetch(`${process.env.LOCAL}/email/send-token`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -5,6 +5,9 @@ import { computed, ref } from "vue";
 
 import { BooksStore } from "./BooksStore";
 
+import env from "dotenv";
+env.config()
+
 interface Item {
   id: number;
   quantity: number;
@@ -65,7 +68,7 @@ export const CartStore = defineStore("Cart", () => {
   async function getcart() {
     try {
       if (user.user.email) {
-        const response = await fetch("http://localhost:3000/cart/get-cart", {
+        const response = await fetch(`${process.env.LOCAL}/cart/get-cart`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -98,7 +101,7 @@ export const CartStore = defineStore("Cart", () => {
   async function addcart(id: number) {
     try {
       if (user.user.email) {
-        const response = await fetch("http://localhost:3000/cart/add-cart", {
+        const response = await fetch(`${process.env.LOCAL}/cart/add-cart`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -130,7 +133,7 @@ export const CartStore = defineStore("Cart", () => {
   async function removecart(id: number) {
     try {
       if (user.user.email) {
-        const response = await fetch("http://localhost:3000/cart/remove-cart", {
+        const response = await fetch(`${process.env.LOCAL}/cart/remove-cart`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
