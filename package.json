@@ -9,7 +9,7 @@
   "clean": "rimraf ./server",
   "build-back": "npm run clean && tsc",
   "prod": "npm-run-all --parallel prod:*",
-  "prod:back": "node ./backend/dist/express.js", 
+  "prod:back": "node ./view/express.js", 
   "prod:front": "vite preview"
 },
   "author": "Ian Matheus Veiga",
