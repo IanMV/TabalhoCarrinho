@@ -5,8 +5,7 @@ import { MessageErrorStore } from "./MessageError";
 
 import { UserStore } from "./UserStore";
 
-import env from "dotenv";
-env.config()
+const local = import.meta.env.VITE_LOCAL
 
 export const CodeStore = defineStore("Code", () => {
   const user = UserStore();
@@ -17,7 +16,7 @@ export const CodeStore = defineStore("Code", () => {
   async function verification() {
     try {
       const response: Response = await fetch(
-        `${process.env.LOCAL}/user/check-token`,
+        `${local}/user/check-token`,
         {
           method: "POST",
           headers: {
@@ -48,7 +47,7 @@ export const CodeStore = defineStore("Code", () => {
 
   async function sendtoken() {
     try {
-      const response: Response = await fetch(`${process.env.LOCAL}/email/send-token`, {
+      const response: Response = await fetch(`${local}/email/send-token`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

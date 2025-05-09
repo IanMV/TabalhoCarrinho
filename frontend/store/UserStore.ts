@@ -2,8 +2,8 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { MessageErrorStore } from "./MessageError";
-import env from "dotenv";
-env.config()
+
+const local = import.meta.env.VITE_LOCAL
 
 export const UserStore = defineStore("UserStore", () => {
   const error = MessageErrorStore();
@@ -15,7 +15,7 @@ export const UserStore = defineStore("UserStore", () => {
 
   async function register() {
     try {
-      const response = await fetch(`${process.env.LOCAL}/user/register`, {
+      const response = await fetch(`${local}/user/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,7 +45,7 @@ export const UserStore = defineStore("UserStore", () => {
   async function login() {
     try {
       const response: Response = await fetch(
-        `${process.env.LOCAL}/user/login`,
+        `${local}/user/login`,
         {
           method: "POST",
           headers: {
