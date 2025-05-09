@@ -12,7 +12,10 @@ const client = new MongoClient(uri, {
   },
 });
 
-await client.connect();
+async function conectar() {
+  await client.connect();
+}
+conectar()
 
 console.log("Make a connection with the database.");
 

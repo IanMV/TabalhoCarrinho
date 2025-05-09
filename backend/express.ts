@@ -1,14 +1,14 @@
 import express from "express";
 import cors from "cors";
 import "dotenv/config"
-import UserLogin from "./user/user-login.ts";
-import UserRegister from "./user/user-register.ts";
-import ResendToken from "./email/resend-token.ts";
-import SendToken from "./email/send-token.ts";
-import EmailVerification from "./email/email-verification.ts";
-import GetCart from "./cart/get-cart.ts";
-import AddCart from "./cart/add-cart.ts"
-import RemoveCart from "./cart/remove-cart.ts";
+import UserLogin from "./user/user-login";
+import UserRegister from "./user/user-register";
+import ResendToken from "./email/resend-token";
+import SendToken from "./email/send-token";
+import EmailVerification from "./email/email-verification";
+import GetCart from "./cart/get-cart";
+import AddCart from "./cart/add-cart"
+import RemoveCart from "./cart/remove-cart";
 
 const app = express();
 

@@ -1,7 +1,6 @@
 import express from "express";
-import db from "../db.ts";
-import { User } from "./UserConstructor.ts";
-
+import db from "../db";
+import { User } from "./UserConstructor";
 const router = express.Router();
 
 router.post("/register", async (req, res) => {

@@ -1,9 +1,9 @@
 import express from "express";
-import db from "../db.ts";
+import db from "../db";
 import nodemailer from "nodemailer";
 import "dotenv/config";
 
-import { Code } from "./CodeConstructor.ts";
+import { Code } from "./CodeConstructor";
 const router = express.Router();
 
 const transporter = nodemailer.createTransport({
