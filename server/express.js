@@ -15,7 +15,10 @@ const get_cart_1 = __importDefault(require("./cart/get-cart"));
 const add_cart_1 = __importDefault(require("./cart/add-cart"));
 const remove_cart_1 = __importDefault(require("./cart/remove-cart"));
 const app = (0, express_1.default)();
-app.use((0, cors_1.default)());
+app.use((0, cors_1.default)({
+    origin: '*',
+    credentials: true,
+}));
 app.use(express_1.default.json());
 app.use("/user", user_register_1.default);
 app.use("/user", user_login_1.default);
