@@ -5,12 +5,12 @@ import { MessageErrorStore } from "./MessageError";
 
 import { UserStore } from "./UserStore";
 
-const local = import.meta.env.VITE_LOCAL
+import { VITE } from "./VITELOCAL";
 
 export const CodeStore = defineStore("Code", () => {
   const user = UserStore();
   const erro = MessageErrorStore();
-
+  const local = VITE().local;
   const code = ref<number>();
 
   async function verification() {

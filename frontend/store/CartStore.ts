@@ -5,7 +5,7 @@ import { computed, ref } from "vue";
 
 import { BooksStore } from "./BooksStore";
 
-const local = import.meta.env.VITE_LOCAL
+import { VITE } from "./VITELOCAL";
 
 interface Item {
   id: number;
@@ -23,6 +23,7 @@ export const CartStore = defineStore("Cart", () => {
   const cart = ref<Array<string>>(
     JSON.parse(sessionStorage.getItem("cart") || "[]")
   );
+  const local = VITE().local;
 
   const finalCart = computed(() => {
     const array: Array<Item> = [];
@@ -52,9 +53,9 @@ export const CartStore = defineStore("Cart", () => {
         quantity: quantity,
         dir: directory,
         subtotal: subtotal,
-        title :title,
-        author :author,
-        price :price
+        title: title,
+        author: author,
+        price: price,
       };
 
       if (!array.some((a) => a.id.toString() == item)) {

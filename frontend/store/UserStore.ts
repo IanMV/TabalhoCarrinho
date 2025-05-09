@@ -2,8 +2,7 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
 import { MessageErrorStore } from "./MessageError";
-
-const local = import.meta.env.VITE_LOCAL
+import { VITE } from "./VITELOCAL";
 
 export const UserStore = defineStore("UserStore", () => {
   const error = MessageErrorStore();
@@ -11,6 +10,7 @@ export const UserStore = defineStore("UserStore", () => {
   const password = ref<string>("");
   const email = ref<string>("");
   const name = ref<string>("");
+  const local = VITE().local;
   const user = ref(JSON.parse(sessionStorage.getItem("user") || "{}"));
 
   async function register() {
@@ -44,19 +44,16 @@ export const UserStore = defineStore("UserStore", () => {
 
   async function login() {
     try {
-      const response: Response = await fetch(
-        `${local}/user/login`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email: email.value,
-            password: password.value,
-          }),
-        }
-      );
+      const response: Response = await fetch(`${local}/user/login`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email.value,
+          password: password.value,
+        }),
+      });
 
       switch (response.status) {
         case 200:
