@@ -13,7 +13,6 @@
     align-items: center;
     justify-content: baseline;
 
-
     background-color: var(--verde-claro);
 
     h1 {
@@ -24,7 +23,6 @@
     }
   }
   section {
-   
     width: 100%;
     height: 100%;
     display: flex;
@@ -35,7 +33,7 @@
       flex-direction: column;
       gap: calc(10px + 3.5vh);
 
-      h2{
+      h2 {
         font-size: var(--subtitulo);
         color: var(--verde-claro);
       }
@@ -51,7 +49,7 @@
         gap: 4%;
         button {
           cursor: pointer;
-          color:var(--branco);
+          color: var(--branco);
           border: none;
           width: 48%;
           padding: calc(2px + 1vh) calc(4px + 1vw);
@@ -71,8 +69,8 @@
           margin-top: calc(2px + 1vh);
         }
 
-        p{
-          color: red;
+        p {
+          color:var(--vermelho);
         }
       }
     }
@@ -85,8 +83,20 @@
       aside {
         justify-content: center;
 
-        h1{
+        h1 {
           margin: 0;
+          width: 80%;
+        }
+      }
+    }
+  }
+  @media (max-width: 1000px) {
+    & {
+      aside {
+        justify-content: center;
+        h1 {
+          margin: 0;
+          width: 90%;
         }
       }
     }

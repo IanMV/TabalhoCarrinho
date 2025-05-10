@@ -36,7 +36,7 @@ onUnmounted(() => {
     <aside><h1>Bem-vindo de volta!</h1></aside>
     <section>
     <form>
-      <h2>Login</h2>
+      <h2>Entrar</h2>
       <div id="usercamps">
         <EmailCamp />
         <PasswordCamp />

@@ -17,6 +17,12 @@ interface Item {
   title: string;
 }
 
+interface Cupom{
+  cupom: string | undefined
+  aplly: string | undefined
+  before: number | undefined
+}
+
 export const CartStore = defineStore("Cart", () => {
   const user = UserStore();
   const book = BooksStore();
@@ -24,6 +30,25 @@ export const CartStore = defineStore("Cart", () => {
     JSON.parse(sessionStorage.getItem("cart") || "[]")
   );
   const local = VITE().local;
+
+  const cartTotal = computed(() => {
+    let total = 0;
+    let quantity = 0;
+    for (const item of finalCart.value) {
+      total += item.subtotal;
+      quantity += item.quantity;
+    }
+
+    if (cupom.value.aplly) {
+      cupom.value.before = total
+      total *= 0.9;
+    }
+    total = Number(total.toFixed(2));
+    return {
+      total,
+      quantity,
+    };
+  });
 
   const finalCart = computed(() => {
     const array: Array<Item> = [];
@@ -164,11 +189,20 @@ export const CartStore = defineStore("Cart", () => {
     }
   }
 
+  const cupom = ref<Cupom>({
+    cupom: undefined,
+    aplly: undefined,
+    before: undefined,
+  });
+
+
   return {
+    cupom,
     finalCart,
     getcart,
     addcart,
     removecart,
     cart,
+    cartTotal,
   };
 });

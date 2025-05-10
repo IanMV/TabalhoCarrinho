@@ -53,7 +53,7 @@ const user = UserStore();
               >
             </li>
             <li class="nav-item-user-login" v-else>
-              <router-link to="/login">Login</router-link>
+              <router-link to="/login">Entrar</router-link>
             </li>
             <hr />
             <li class="greentext">

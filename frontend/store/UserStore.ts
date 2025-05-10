@@ -33,12 +33,12 @@ export const UserStore = defineStore("UserStore", () => {
           router.push("/login");
           break;
         default:
-          error.message = "An error ocurred";
+          error.message = "Um erro ocorreu";
           break;
       }
     } catch (err) {
       console.error(err);
-      error.message = "An error ocurred";
+      error.message = "Um erro ocorreu";
     }
   }
 
@@ -60,22 +60,23 @@ export const UserStore = defineStore("UserStore", () => {
           error.message = "";
           const data = await response.json();
           user.value = data.information;
-          sessionStorage.setItem("user", JSON.stringify(data.information));
           router.push("/");
+          sessionStorage.setItem("user", JSON.stringify(data.information));
+          
           break;
         case 401:
-          error.message = "Email or password incorrect";
+          error.message = "Email ou senha incorretos";
           break;
         case 404:
-          error.message = "Email or password incorrect";
+          error.message = "Email ou senha incorretos";
           break;
         default:
-          error.message = "An error ocurred";
+          error.message = "Um erro ocorreu";
           break;
       }
     } catch (err) {
       console.error(err);
-      error.message = "An error ocurred";
+      error.message = "Um erro ocorreu";
     }
   }
 

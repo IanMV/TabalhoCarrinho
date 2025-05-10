@@ -72,7 +72,7 @@ onUnmounted(() => {
     <aside><h1>Bem-vindo!</h1></aside>
     <section>
       <form>
-        <h2>Register</h2>
+        <h2>Cadastro</h2>
         <div id="usercamps">
           <TokenCamp v-if="error.steps.two && !error.steps.three" />
           <NameCamp v-if="error.steps.three" />
