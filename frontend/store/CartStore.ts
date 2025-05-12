@@ -17,10 +17,10 @@ interface Item {
   title: string;
 }
 
-interface Cupom{
-  cupom: string | undefined
-  aplly: string | undefined
-  before: number | undefined
+interface Cupom {
+  cupom: string | undefined;
+  aplly: string | undefined;
+  before: number | undefined;
 }
 
 export const CartStore = defineStore("Cart", () => {
@@ -40,7 +40,7 @@ export const CartStore = defineStore("Cart", () => {
     }
 
     if (cupom.value.aplly) {
-      cupom.value.before = total
+      cupom.value.before = total;
       total *= 0.9;
     }
     total = Number(total.toFixed(2));
@@ -61,9 +61,11 @@ export const CartStore = defineStore("Cart", () => {
       let price: number = 0;
       let author: string = "";
       let title: string = "";
+      let id: number = 0;
 
       for (const i of book.books) {
         if (i.id.toString() == item) {
+          id = Number(i.id);
           title = i.title;
           author = i.author;
           price = i.price;
@@ -74,7 +76,7 @@ export const CartStore = defineStore("Cart", () => {
       }
 
       const object: Item = {
-        id: Number(item),
+        id: id,
         quantity: quantity,
         dir: directory,
         subtotal: subtotal,
@@ -194,7 +196,6 @@ export const CartStore = defineStore("Cart", () => {
     aplly: undefined,
     before: undefined,
   });
-
 
   return {
     cupom,

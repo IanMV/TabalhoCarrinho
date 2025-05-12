@@ -8,9 +8,18 @@ const router = useRouter();
 import { UserStore } from "../store/UserStore";
 const cart = CartStore();
 const user = UserStore();
+import { BooksStore } from "../store/BooksStore";
+const books = BooksStore();
+import imagens from "../images";
 onBeforeMount(async () => {
   await cart.getcart();
 });
+function getImage(file: number): string {
+  const item = books.books.filter(a => a.id == file)
+  const path = item[0].dir
+  console.log(path)
+  return imagens[path]
+}
 </script>
 
 <template>
@@ -33,7 +42,7 @@ onBeforeMount(async () => {
         <li v-for="item of cart.finalCart">
           <div id="item">
             <div>
-              <img :src="item.dir" alt="" />
+              <img :src="getImage(item.id)" alt="" />
               <div class="info">
                 <p>{{ item.title }}</p>
                 <p>{{ item.author }}</p>
