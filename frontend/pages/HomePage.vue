@@ -4,9 +4,18 @@ import MyFooter from "../components/highcomponents/MyFooter.vue";
 import { BooksStore } from "../store/BooksStore";
 import { CartStore } from "../store/CartStore";
 import { useRouter } from "vue-router";
+import imagens from "../images";
 const router = useRouter()
 const cart = CartStore()
 const books = BooksStore();
+
+
+function getImage(file: number): string {
+  const path = books.books[file].dir
+  console.log(path)
+  return imagens[path]
+}
+
 </script>
 <template>
   <MyHeader />
@@ -54,7 +63,7 @@ const books = BooksStore();
       <ul>
         <li v-for="(book, index) of books.books" :key="index">
          
-            <img :src="book.dir" alt="" />
+            <img :src="getImage(index)" alt="" />
             <div>
               <p>Título: {{ book.title }}</p>
               <p>Autores: {{ book.author }}</p>

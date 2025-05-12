@@ -1,5 +1,6 @@
 <script setup>
 import "./base.css";
+const camibho = './'
 </script>
 
 <template>

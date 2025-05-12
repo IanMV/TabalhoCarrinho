@@ -5,6 +5,7 @@ interface ImportMetaEnv {
   // outras variáveis do .env podem ser adicionadas aqui
 }
 
+// Não precisa declarar `glob` manualmente!
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
